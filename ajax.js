@@ -40,21 +40,34 @@ var inside_section = document.createElement('p');
 }).always(function(){
   console.log('always method');
 });
+});
 
 button7.addEventListener('click', function(){
 console.log('button 7 created');
 
-$.ajax({
-  url:"/count",
+$.ajax( {
+  url:"http://first-ajax-api.herokuapp.com/count",
   method:"GET",
   data:"",
   dataType:'text'
 }).done(function (responseData){
+
 });//
+});
 //
 // console.log('Clicked Button');
 // console.log('responseData')
 
+button8.addEventListener('click', function(){
+  console.log('button 8');
+
+  $.ajax({
+    url:"http://first-ajax-api.herokuapp.com/time",
+    method:'GET',
+    data: {timezone: ""},
+    dataType: "text"
+  }).done(function (responseData){
+  })
 });
   /* Your code goes here */
 });
