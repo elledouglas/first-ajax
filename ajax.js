@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-var button = document.getElementById('button')
-var button1 = document.getElementById('button1')
-var button7 = document.getElementById('button7')
-var button9 = document.getElementById('button9')
+var button = document.getElementById('button');
+var button1 = document.getElementById('button1');
+var button7 = document.getElementById('button7');
+var button9 = document.getElementById('button9');
+var bob = document.querySelector('#bob');
 //Here in the callback, we have a variable called responseData
 //that holds the content of the server's response,
 //in this case, a simple string
@@ -17,7 +18,7 @@ button.addEventListener('click', function(){
     dataType:""
   }).done(function (responseData) {
     });
-})
+});
 
 button1.addEventListener('click', function(){
   console.log('Clicked Button 1');
@@ -75,11 +76,14 @@ button9.addEventListener('click', function(){
 console.log('button9');
 
   $.ajax({
-    url:"http://first-ajax-api.herokuapp.com/a_car",
-    method: "POST",
-    data: "",
-    dataType: "html"
-  })
-})
+    url:'http://first-ajax-api.herokuapp.com/a_car',
+    method: 'GET',
+    dataType: 'html'
+  }).done(function(responseData){
+    console.log('button999')
+    // bob.append(responseData);
+
+  });
+});
   /* Your code goes here */
 });
