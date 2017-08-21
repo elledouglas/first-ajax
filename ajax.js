@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
 var button = document.getElementById('button')
 var button1 = document.getElementById('button1')
+var button7 = document.getElementById('button7')
 //Here in the callback, we have a variable called responseData
 //that holds the content of the server's response,
 //in this case, a simple string
@@ -17,19 +18,22 @@ button.addEventListener('click', function(){
     });
 })
 
-  var button1 = $.ajax({
-  url:"http://first-ajax-api.herokuapp.com/pong",
-  method:"get",
-  data:"",
-  dataType:"text"
-  });
+button1.addEventListener('click', function(){
+  console.log('Clicked Button 1');
 
-button1.done(function (responseData) {
+  $.ajax({
+    url:"http://first-ajax-api.herokuapp.com/ping",
+    method:"get",
+    data:"",
+    dataType:"text"
+
+}).done(function (responseData) {
   console.log ('INSIDE .done ()');
 
-  var inside_section = document.createElement('div');
+
+var inside_section = document.createElement('p');
   inside_section.innerHTML = responseData;
-  document.querySelector('body').append(inside_section);
+  document.querySelector('#step7').append(inside_section);
 }).fail(function(){
   console.log('TRYHARDER).fail function');
   console.log(responseData);
@@ -37,14 +41,20 @@ button1.done(function (responseData) {
   console.log('always method');
 });
 
+button7.addEventListener('click', function(){
+console.log('button 7 created');
 
-console.log('Clicked Button');
-console.log('responseData')
+$.ajax({
+  url:"/count",
+  method:"GET",
+  data:"",
+  dataType:'text'
+}).done(function (responseData){
+});//
+//
+// console.log('Clicked Button');
+// console.log('responseData')
 
-
-
-
-
-
-  });
+});
   /* Your code goes here */
+});
